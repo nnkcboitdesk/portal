@@ -77,7 +77,7 @@
             background: transparent;
         }
 
-        /* ---- VARIABLES (enhanced) ---- */
+        /* ---- VARIABLES---- */
         :root {
             --primary: #19733a;
             --primary-dark: #115c2d;
@@ -126,7 +126,7 @@
             --font-body: 'Inter', system-ui, -apple-system, sans-serif;
         }
 
-        /* ---- DARK THEME (enhanced) ---- */
+        /* ---- DARK THEME ---- */
         [data-theme="dark"] {
             --bg: #18191a;
             --surface: #242526;
@@ -151,7 +151,7 @@
             --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.55);
         }
 
-        /* ---- LOGIN (enhanced) ---- */
+        /* ---- LOGIN ---- */
         .login-shell {
             min-height: var(--nnk-vh, 100vh);
             min-height: 100dvh;
@@ -482,7 +482,7 @@
             display: none;
         }
 
-        /* ---- SIDEBAR (enhanced) ---- */
+        /* ---- SIDEBAR  ---- */
         .sidebar {
             position: fixed;
             z-index: 100;
@@ -715,7 +715,7 @@
             backdrop-filter: blur(3px);
         }
 
-        /* ---- TOPBAR (enhanced) ---- */
+        /* ---- TOPBAR  ---- */
         .topbar {
             position: sticky;
             top: 0;
@@ -959,7 +959,7 @@
             font-weight: 500;
         }
 
-        /* ---- NOTIFICATION PANEL (enhanced) ---- */
+        /* ---- NOTIFICATION PANEL  ---- */
         .notification-panel {
             position: fixed;
             z-index: 400;
@@ -1303,7 +1303,7 @@
             align-items: center;
         }
 
-        /* ---- BUTTONS (enhanced) ---- */
+        /* ---- BUTTONS  ---- */
         .primary,
         .secondary,
         .danger {
@@ -1347,7 +1347,7 @@
             justify-content: center;
         }
 
-        /* ---- CARDS / STATS (enhanced) ---- */
+        /* ---- CARDS / STATS  ---- */
         .cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
@@ -1482,7 +1482,7 @@
             flex-shrink: 0;
         }
 
-        /* ---- TABLE (enhanced) ---- */
+        /* ---- TABLE  ---- */
         .table-tools {
             display: flex;
             align-items: center;
@@ -1558,7 +1558,7 @@
             border-radius: 6px;
         }
 
-        /* ---- BADGES (enhanced) ---- */
+        /* ---- BADGES  ---- */
         .badge {
             display: inline-flex;
             align-items: center;
@@ -1616,7 +1616,7 @@
             font-weight: 700;
         }
 
-        /* ---- FORMS (enhanced) ---- */
+        /* ---- FORMS  ---- */
         .form-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -2272,7 +2272,7 @@
             margin-top: 6px;
         }
 
-        /* ---- CUSTOM NNK LOGO (as per attached description) ---- */
+        /* ---- CUSTOM NNK LOGO ---- */
         .nnk-logo {
             display: flex;
             flex-direction: column;
@@ -2598,7 +2598,7 @@
     <!-- ===== JAVASCRIPT ===== -->
     <script>
         /* ============================================================
-           NNK CBO — MAIN APPLICATION (enhanced)
+           NNK CBO — MAIN APPLICATION
            ============================================================ */
 
         const API_URL =
@@ -2877,9 +2877,9 @@
             try {
                 r = await fetch(API_URL, { method: 'POST', headers: { 'Content-Type': 'text/plain;charset=utf-8' },
                     body: JSON.stringify(payload), redirect: 'follow' });
-            } catch (e) { throw Error('Cannot reach Google Apps Script. Check the Web App URL and deployment.'); }
+            } catch (e) { throw Error('Poor connection. Please check your internet connection and try again.'); }
             let j;
-            try { j = await r.json(); } catch (e) { throw Error(`Backend returned invalid JSON (HTTP ${r.status}).`); }
+            try { j = await r.json(); } catch (e) { throw Error(`Network error (HTTP ${r.status}).`); }
             if (!j.ok) throw Error(j.error || 'Request failed');
             return j.data;
         }
